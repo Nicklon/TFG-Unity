@@ -58,4 +58,4 @@ Dentro de la escena se apunta hacia los obstáculos que se quieran disparar, usa
 
 Para la parte del Wiimote se usa la librería hecha por Adrian Biagioli disponible en el siguiente link:
 
-https://github.com/Flafla2/Unity-W
+https://github.com/Flafla2/Unity-Wiimote/
