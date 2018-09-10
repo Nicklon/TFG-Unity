@@ -17,23 +17,23 @@ public class ObjectiveScript : MonoBehaviour {
 	}
 
 	void OnParticleCollision(GameObject particle)
-	{
-		print ("Getting hit by particles");
-		scoreBoard.ScoreHit (points);
-		SendMessageUpwards ("ObjectiveDestroyed",gameObject);
-		Destroy (gameObject);
+    {
+        SendMessageUpwards ("ObjectiveDestroyed",gameObject);
+        Destroy (gameObject);
 	}
 
 	void OnCollisionEnter(Collision collision)
 	{
-		GameObject origin = collision.gameObject;
+        if(collision.gameObject.tag == "bullet")
+        {
+            scoreBoard.ScoreHit(points);
+        }
 
-		print ("Colliding " + gameObject.name + " with " + origin.name);
-		SendMessageUpwards ("ObjectiveDestroyed",gameObject);
+        SendMessageUpwards ("ObjectiveDestroyed",gameObject);
 		Destroy (gameObject);
 	}
 
-	void setPoints(int x)
+	public void setPoints(int x)
 	{
 		points = x;
 	}

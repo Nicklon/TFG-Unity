@@ -661,9 +661,10 @@ public class Wiimote
                 // Offset 0xa600fa is for the Wii Motion Plus.  This error code can be expected behavior in this case.
                 if (error == 0x07)
                 {
+                    
                     if(CurrentReadData.Offset != 0xa600fa)
                         Debug.LogError("Wiimote reports Read Register error 7: Attempting to read from a write-only register ("+CurrentReadData.Offset.ToString("x")+").  Aborting read.");
-
+                    
                     CurrentReadData = null;
                     return status;
                 }

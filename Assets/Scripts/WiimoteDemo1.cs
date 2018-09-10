@@ -87,7 +87,23 @@ public class WiimoteDemo1 : MonoBehaviour {
 
         float[] pointer = wiimote.Ir.GetPointingPosition();
         ir_pointer.anchorMin = new Vector2(pointer[0], pointer[1]);
-        ir_pointer.anchorMax = new Vector2(pointer[0], pointer[1]);
+		ir_pointer.anchorMax = new Vector2(pointer[0], pointer[1]);
+		Debug.Log (pointer[0]);
+		Debug.Log (pointer[1]);
+		UpdateRotationWiimote ();
+	}
+
+
+	void UpdateRotationWiimote()
+	{
+		/*
+		if (wiimote.current_ext == ExtensionController.MOTIONPLUS) 
+		{
+			return;
+		}
+		*/
+
+		model.rot.rotation = Quaternion.FromToRotation (model.rot.transform.position,  ir_pointer.position);	
 	}
 
     void OnGUI()

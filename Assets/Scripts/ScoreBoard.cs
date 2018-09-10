@@ -5,14 +5,13 @@ using UnityEngine.UI;
 public class ScoreBoard : MonoBehaviour {
 
 	int score;
-	Text scoreText;
+    [SerializeField] Text scoreText;
 
 	// Use this for initialization
 	void Start()
 	{
-		scoreText = GetComponent<Text>();
-		scoreText.text = score.ToString();
-	}
+		scoreText.text = "Points : " + score.ToString();
+    }
 
 	public void ScoreHit(int scorePerHit)
 	{
